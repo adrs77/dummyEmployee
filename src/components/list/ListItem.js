@@ -20,8 +20,8 @@ function ListItem({ person }) {
           <p>Age: {person.employee_age}</p>
         </Card.Subtitle>
         <Card.Text className="user-info">
-          <p>ID: {person.id}</p>
-          <p>Salary: {person.employee_salary}$</p>
+          <span>ID: {person.id}</span>
+          <span>Salary: {person.employee_salary}$</span>
         </Card.Text>
       </Card.Body>
     </Card>

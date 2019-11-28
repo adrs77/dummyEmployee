@@ -3,30 +3,52 @@ import { ListContainer } from "./ListStyled";
 import getData from "../../api/getData";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import ListItem from "./ListItem";
+import {saveEmployees, saveIds} from '../../actions/index'
+import { connect } from "react-redux";
 
-function List() {
-  const [employeeList, setEmployeeList] = useState(null);
+
+const mapStateToProps = state => {
+  return { savedEmployees: state.savedEmployees, initFetch: state.initFetch };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    saveEmployees: data => dispatch(saveEmployees(data)),
+    saveIds: data => dispatch(saveIds(data)),
+  };
+};
+
+function List({saveEmployees, savedEmployees, saveIds, initFetch}) {
   const [isFetched, setIsFetched] = useState(false);
-
-  useEffect(() => {
+  
+  const fetchEmployees = () => {
     getData("http://dummy.restapiexample.com/api/v1/employees").then(
       response => {
         let data = response.filter(employee => {
           return employee.employee_salary === "135813";
         });
-        setEmployeeList(data);
+        let ids = data.map(employee => {
+          return employee.id
+        });
+        saveEmployees(data)
+        saveIds(ids)
         setIsFetched(true);
       }
     );
-  }, []);
+  }  
+
+  useEffect(() => {
+    setIsFetched(false)
+    fetchEmployees()
+  }, [initFetch]);
 
   return (
     <ListContainer>
       {isFetched ? (
         <Container>
           <Row>
-            {employeeList &&
-              employeeList.map((person, i) => {
+            {savedEmployees &&
+              savedEmployees.map((person, i) => {
                 return (
                   <Col key={i} xs="12" sm="6" md="6" lg="4">
                     <ListItem person={person} />
@@ -44,4 +66,7 @@ function List() {
   );
 }
 
-export default List;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List);

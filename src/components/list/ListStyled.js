@@ -7,8 +7,9 @@ export const ListContainer = styled.div`
   min-height: 800px;
   background-color: white;
   color: #232323;
-  padding: 25px 25px;
+  padding: 45px 25px 25px;
   border-radius: 8px;
+  position: relative;
 
   .spinner-box {
     width: 100%;
@@ -18,7 +19,6 @@ export const ListContainer = styled.div`
       position: absolute;
       top: 25%;
       left: 50%;
-      transform: translate(-50% -50%);
     }
   }
   .list-item {
@@ -39,9 +39,11 @@ export const ListContainer = styled.div`
       font-weight: bold;
     }
     .user-info {
-      p {
+      span {
         margin: 0;
+        display: block;
       }
     }
   }
+ 
 `;

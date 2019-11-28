@@ -11,16 +11,26 @@ export const NavContainer = styled.div`
     font-size: 32px;
     padding: 16px 0;
   }
-  .add-button {
+  .button-container {
     text-align: right;
     padding: 16px 0;
-    button {
+    .button-add {
       color: #6466d4;
-    padding: 5px 10px;
-    background-color: transparent;
-    border: 2px solid #6466d4;
-    font-weight: 600;
-    border-radius: 8px;
+      background-color: transparent;
+      border: 2px solid #6466d4;
+    }
+    .button-remove {
+      color: white;
+      border: 2px solid #ff7264;
+      background-color: #ff7264;
+    }
+    .button-remove,
+    .button-add {
+      margin: 0 5px;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 5px 10px;
+      text-transform: uppercase;
     }
   }
 `;
