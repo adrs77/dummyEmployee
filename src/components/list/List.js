@@ -47,14 +47,17 @@ function List({saveEmployees, savedEmployees, saveIds, initFetch}) {
       {isFetched ? (
         <Container>
           <Row>
-            {savedEmployees &&
+            {savedEmployees.length >= 1 ?
               savedEmployees.map((person, i) => {
                 return (
                   <Col key={i} xs="12" sm="6" md="6" lg="4">
                     <ListItem person={person} />
                   </Col>
                 );
-              })}
+              })
+            :
+            <div className="empty-list-info">
+              <p>There are no employees with $135813 salary!</p></div>}
           </Row>
         </Container>
       ) : (

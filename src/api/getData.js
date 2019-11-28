@@ -14,7 +14,9 @@ function getData(url) {
 				return response.json();
 			}
 			throw Error(response.status);
-		})
+		}).catch(error => {
+			alert("Something went wrong! Try again");
+		  });
 }
 
 export default getData;

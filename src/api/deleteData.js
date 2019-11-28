@@ -15,7 +15,9 @@ function deleteData(url) {
 			}
             throw Error(response.status);
             //handle
-		})
+		}).catch(error => {
+			alert("Something went wrong! Try again");
+		  });
 }
 
 export default deleteData;

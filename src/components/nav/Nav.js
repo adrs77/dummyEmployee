@@ -5,6 +5,7 @@ import postData from "../../api/postData";
 import deleteData from "../../api/deleteData";
 import { connect } from "react-redux";
 import { saveEmployees, saveIds, newUser } from '../../actions/index'
+import ModalWrapper from '../modal/Modal'
 
 const mapStateToProps = state => {
   return { savedIds: state.savedIds, initFetch: state.initFetch };
@@ -25,8 +26,8 @@ function Nav({savedIds, saveIds, saveEmployees, initFetch, newUser}) {
     saveEmployees("")
     saveIds("")
   };
-  const addUser = () => {
-    postData("http://dummy.restapiexample.com/api/v1/create").then(
+  const addUser = (data) => {
+    postData("http://dummy.restapiexample.com/api/v1/create", data).then(
       () => newUser(!initFetch)
     );
   };
@@ -36,14 +37,12 @@ function Nav({savedIds, saveIds, saveEmployees, initFetch, newUser}) {
       <Container fluid>
         <Container>
           <Row>
-            <Col xs="6">
+            <Col xs="12" sm="6" md="6">
               <h1 className="title">DummyEmployee</h1>
             </Col>
-            <Col xs="6">
+            <Col xs="12" sm="6" md="6">
               <div className="button-container">
-                <button className="button-add" onClick={() => addUser()}>
-                  ADD EMPLOYEE
-                </button>
+                <ModalWrapper buttonClass="button-add" addUser={addUser}/>
                 <button onClick={() => removeUsers()} className="button-remove">Remove all</button>
               </div>
             </Col>

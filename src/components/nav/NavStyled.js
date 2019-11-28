@@ -10,6 +10,10 @@ export const NavContainer = styled.div`
     margin: 0;
     font-size: 32px;
     padding: 16px 0;
+    @media only screen and (max-width: 767px) {
+      font-size: 27px;
+      text-align: center;
+      }
   }
   .button-container {
     text-align: right;
@@ -32,5 +36,10 @@ export const NavContainer = styled.div`
       padding: 5px 10px;
       text-transform: uppercase;
     }
+    @media only screen and (max-width: 767px) {
+      font-size: 12px;
+      margin: auto;
+      text-align: center;
+  }
   }
 `;

@@ -4,10 +4,10 @@ export const ListContainer = styled.div`
   margin-top: 60px;
   margin-bottom: 60px;
   width: 100%;
-  min-height: 800px;
+  min-height: 400px;
   background-color: white;
   color: #232323;
-  padding: 45px 25px 25px;
+  padding: 20px 25px 45px;
   border-radius: 8px;
   position: relative;
 
@@ -30,6 +30,16 @@ export const ListContainer = styled.div`
       width: 120px;
     }
    }
+  }
+  .empty-list-info {
+    font-size: 32px;
+    width: 100%;
+    font-weight: bold;
+    p {
+      padding: 20px 0;
+    text-align: center;
+
+    }
   }
   .card-container {
     background-color: #f4f4f9;
