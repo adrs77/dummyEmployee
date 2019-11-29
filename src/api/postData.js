@@ -8,7 +8,7 @@ function postData(url, employee_data) {
     },
     redirect: "follow",
     referrer: "no-referrer",
-    body: JSON.stringify()
+    body: JSON.stringify(employee_data)
   })
     .then(response => {
       if (response.ok) {
