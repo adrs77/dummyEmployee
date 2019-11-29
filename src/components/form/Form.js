@@ -1,6 +1,6 @@
 import React from "react";
-import { Formik, Field } from "formik";
 import * as Yup from "yup";
+import { Formik, Field } from "formik";
 import { FormContainer } from "./FormStyled";
 
 const styleError = {
@@ -9,7 +9,7 @@ const styleError = {
 
 const formValidation = Yup.object().shape({
   name: Yup.string().required("Please enter your name"),
-  age: Yup.number("Must be a number").required("Please enter your age")
+  age: Yup.number().required("Please enter your age")
 });
 
 function Form({ addUser, handleClose }) {
@@ -28,11 +28,7 @@ function Form({ addUser, handleClose }) {
           values,
           errors,
           touched,
-          handleChange,
-          handleBlur,
           handleSubmit,
-          isSubmitting
-          /* and other goodies */
         }) => (
           <form onSubmit={handleSubmit}>
             <div className="input-box">

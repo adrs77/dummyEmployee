@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { ListContainer } from "./ListStyled";
-import getData from "../../api/getData";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
-import ListItem from "./ListItem";
-import {saveEmployees, saveIds} from '../../actions/index'
 import { connect } from "react-redux";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
+
+import {saveEmployees, saveIds} from '../../actions/index'
+import getData from "../../api/getData";
+import ListItem from "./ListItem";
+import { ListContainer } from "./ListStyled";
 
 
 const mapStateToProps = state => {

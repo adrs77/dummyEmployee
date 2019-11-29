@@ -14,7 +14,6 @@ function deleteData(url) {
 				return response.json();
 			}
             throw Error(response.status);
-            //handle
 		}).catch(error => {
 			alert("Something went wrong! Try again");
 		  });

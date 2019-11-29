@@ -1,8 +1,9 @@
 import React from "react";
+import { Container, Row } from "react-bootstrap";
+
 import Nav from '../../components/nav/Nav'
-import { HomeContainer } from "./HomeStyled";
-import { Container, Row, Col } from "react-bootstrap";
 import List from '../../components/list/List'
+import { HomeContainer } from "./HomeStyled";
 
 function Home() {
   return (
